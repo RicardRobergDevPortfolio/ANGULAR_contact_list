@@ -1,0 +1,71 @@
+<div class="backdrop" (click)="onCancel()"></div>
+
+<dialog open>
+  <h2>Add Contact</h2>
+  <form (ngSubmit)="onSubmit()">
+    <p>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" [(ngModel)]="enteredName" />
+    </p>
+
+    <p>
+      <label for="nickname">Nick name:</label>
+      <input type="text" id="nickname" name="nickname" [(ngModel)]="enteredNickName" />
+    </p>
+
+    <p>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" [(ngModel)]="enteredEmail" />
+    </p>
+
+    <p>
+      <label for="streetName">Street name:</label>
+      <input type="text" id="streetName" name="streetName" [(ngModel)]="enteredStreetName" />
+    </p>
+
+    <p>
+      <label for="streetNumber">Street number:</label>
+      <input type="text" id="streetNumber" name="streetNumber" [(ngModel)]="enteredStreetNumber" />
+    </p>
+
+    <p>
+      <label for="district">District:</label>
+      <input type="text" id="district" name="district" [(ngModel)]="enteredDistrict" />
+    </p>
+
+    <p>
+      <label for="city">City:</label>
+      <input type="text" id="city" name="city" [(ngModel)]="enteredCity" />
+    </p>
+
+    <p>
+      <label for="state">State:</label>
+      <input type="text" id="state" name="state" [(ngModel)]="enteredState" />
+    </p>
+
+    <p>
+      <label for="country">Country:</label>
+      <input type="text" id="country" name="country" [(ngModel)]="enteredCountry" />
+    </p>
+
+    <p>
+      <label for="postalCode">Postal Code:</label>
+      <input type="text" id="postalCode" name="postalCode" [(ngModel)]="enteredPostalCode" />
+    </p>
+
+    <p>
+      <label for="phone1">Phone:</label>
+      <input type="tel" id="phone1" name="phone1" [(ngModel)]="enteredPhone1" />
+    </p>
+
+    <p>
+      <label for="phone2">Phone 2:</label>
+      <input type="tel" id="phone2" name="phone2" [(ngModel)]="enteredPhone2" />
+    </p>
+
+    <p class="actions">
+      <button type="button" (click)="onCancel()">Cancel</button>
+      <button type="submit">Create</button>
+    </p>
+  </form>
+</dialog>
