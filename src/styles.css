@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --bg-color: #13192b;
+  --primary-color: #0e3b5f;
+  --accent-color: #0a6b9d;
+  --highlight-color: #05a9e0;
+  --cta-color: #08f1ff;
+
+  --text-color: #ffffff;
+  --muted-text-color: #c4c4c4;
+
+  --border-color: rgba(255, 255, 255, 0.1);
+  --error-color: #ff4d4f;
+  --success-color: #52c41a;
+
+  --shadow-color: rgba(91, 158, 245, 0.829);
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}

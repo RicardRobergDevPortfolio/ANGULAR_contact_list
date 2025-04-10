@@ -1,20 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 import { HeaderComponent } from "./header/header.component";
-import { ContactComponent } from "./contacts/contact/contact.component";
 
 import { DEFAULT_USERS } from './user/DEFAULT_USERS';
-import { ContactsComponent } from "./contacts/contacts.component";
+import { ContactComponent } from "./contacts/contact.component";
 import { UserComponent } from "./user/user.component";
+import { FooterComponent } from "./footer/footer.component";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [HeaderComponent, ContactsComponent, UserComponent],
+  standalone: true,
+  imports: [HeaderComponent, ContactComponent, UserComponent, FooterComponent, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  contacts = DEFAULT_USERS
+  contacts = DEFAULT_USERS.sort((a, b) => a.name.localeCompare(b.name))
   selectedContactId?: string
 
   get selectedContact() {
@@ -23,5 +25,19 @@ export class AppComponent {
 
   onSelectContact(userId: string) {
     this.selectedContactId = userId
+  }
+
+  onContactRemoved(userId: string) {
+    this.contacts = this.contacts.filter(contact => contact.userId !== userId);
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent) {
+    const target = event.target as HTMLElement;
+    const insideUserList = target.closest('#contacts'); // ou algum seletor que englobe os botões
+
+    if (!insideUserList) {
+      this.selectedContactId = undefined;
+    }
   }
 }

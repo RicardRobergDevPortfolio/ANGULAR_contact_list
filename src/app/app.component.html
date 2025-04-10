@@ -1,11 +1,12 @@
 <app-header />
+
 <main>
   <ul id="contacts">
     @for(contact of contacts; track contact.userId){
     <li>
       <app-user
         [contact]="contact"
-        [selected]="contact.userId == selectedContactId"
+        [selected]="selectedContactId === contact.userId"
         (select)="onSelectContact($event)"
       />
     </li>
@@ -13,12 +14,12 @@
   </ul>
 
   @if(selectedContact){
-  <app-contacts
+  <app-contact
     [userId]="selectedContact.userId"
     [name]="selectedContact.name"
   />
   } @else {
   <h2 id="fallback">Select a user to see their info!</h2>
   }
-  <footer>ANY FOOTER</footer>
 </main>
+<app-footer />

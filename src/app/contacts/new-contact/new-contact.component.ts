@@ -1,5 +1,5 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
-import { ContactService } from '../contacts.service';
+import { ContactService } from '../contact.service';
 import { FormsModule } from '@angular/forms';
 
 @Component({

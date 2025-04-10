@@ -1,0 +1,21 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  width: 90vw;
+  max-width: 1200px;
+
+  margin: 20px auto;
+  padding: 8px 20px;
+  border-radius: 6px;
+  background-color: var(--primary-color);
+  box-shadow: 0 1px 6px var(--shadow-color);
+}
+
+.footer div {
+  width: 100%;
+  color: var(--muted-text-color);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 0.75rem;
+}

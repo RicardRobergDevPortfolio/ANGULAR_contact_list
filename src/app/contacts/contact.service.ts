@@ -16,8 +16,8 @@ export class ContactService {
     }
   }
 
-  getUserContacts(userId: string) {
-    return this.contacts.filter(contact => contact.userId === userId)
+  getUserContact(userId: string) {
+    return this.contacts.find(contact => contact.userId === userId)
   }
 
   addContact(contact: Contact, userId: string) {
@@ -25,6 +25,7 @@ export class ContactService {
       userId: new Date().getTime().toString(),
       name: contact.name,
       nickName: contact.nickName,
+
       email: contact.email,
       address: {
         streetName: contact.address.streetName,
@@ -49,4 +50,4 @@ export class ContactService {
   private saveContacts() {
     localStorage.setItem('contacts', JSON.stringify(this.contacts))
   }
-}
+}   

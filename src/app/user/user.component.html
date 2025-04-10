@@ -1,5 +1,5 @@
-<div>
-  <button [class.active]="selected" (click)="onSelectContact()">
-    <span>{{ contact.name }}</span>
-  </button>
-</div>
+  <app-card>
+    <button [class.active]="selected" (click)="onSelectContact()">
+      <span>{{ contact.nickName }}</span>
+    </button>
+  </app-card>

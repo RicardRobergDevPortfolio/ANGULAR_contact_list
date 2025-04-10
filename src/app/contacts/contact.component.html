@@ -1,0 +1,16 @@
+@if(isAddingContact) {
+  <app-new-contact [userId]="userId" (close)="onCloseAddContact()" />
+}
+
+<section id="contact">
+  <header>
+    <h2>{{ name }}'s Contact</h2>
+    <menu>
+      <button (click)="onStartAddContact()">Add new contact</button>
+    </menu>
+  </header>
+
+  @if(selectedContact) {
+    <app-show-contact [contact]="selectedContact" />
+  }
+</section>

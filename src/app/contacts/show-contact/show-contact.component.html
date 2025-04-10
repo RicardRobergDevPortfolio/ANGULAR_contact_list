@@ -1,0 +1,20 @@
+<div>
+  <article>
+    <h2>{{ contact.nickName }}´s Info</h2>
+    <p>Full Name: {{ contact.name }}</p>
+    <p>Phone: {{ contact.address.phone1 }}</p>
+    <p>Phone 2: {{ contact.address.phone2 }}</p>
+    <p>
+      Street 2: {{ contact.address.streetName }},
+      {{ contact.address.streetNumber }}
+    </p>
+    <p>District: {{ contact.address.district }}</p>
+    <p>City: {{ contact.address.city }} - {{ contact.address.state }}</p>
+
+    <p>Country: {{ contact.address.country }}</p>
+    <p>Zip: {{ contact.address.postalCode }}</p>
+    <p class="actions">
+      <button (click)="onRemoveContact()">Remove contact</button>
+    </p>
+  </article>
+</div>
