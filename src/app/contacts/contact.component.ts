@@ -13,10 +13,6 @@ import { NewContactComponent } from './new-contact/new-contact.component';
 })
 export class ContactComponent {
   @Input({ required: true }) contact!: Contact
-  @Output() contactRemoved = new EventEmitter<void>();
-
-  // @Input({ required: true }) userId!: string
-  // @Input({ required: true }) name!: string
   isAddingContact: boolean = false
 
   constructor(private contactService: ContactService) { }

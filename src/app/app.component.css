@@ -1,7 +1,7 @@
 main {
   width: 90vw;
   max-width: 1200px;
-  min-height: 41vh;
+  min-height: 50vh;
   margin: 2.5rem auto;
   display: grid;
   grid-auto-flow: row;
@@ -15,7 +15,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  max-height: 60vh;
+  max-height: 50vh;
   overflow: auto;
 }
 

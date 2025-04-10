@@ -8,6 +8,7 @@ import { UserComponent } from "./user/user.component";
 import { FooterComponent } from "./footer/footer.component";
 import { CommonModule } from '@angular/common';
 import { CardComponent } from "./shared/card/card.component";
+import { ContactService } from './contacts/contact.service';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +20,9 @@ import { CardComponent } from "./shared/card/card.component";
 export class AppComponent {
   contacts = DEFAULT_USERS.sort((a, b) => a.name.localeCompare(b.name))
   selectedContactId?: string
+
+  constructor(private contactService: ContactService) { }
+
 
   get selectedContact() {
     return this.contacts.find(contact => contact.userId === this.selectedContactId)
@@ -37,7 +41,7 @@ export class AppComponent {
   }
 
   onRemoveContact() {
-    // this.contactService.removeContact(this.contact.userId);
+    this.contactService.removeContact(this.selectedContactId!);
   }
 
   @HostListener('document:click', ['$event'])
