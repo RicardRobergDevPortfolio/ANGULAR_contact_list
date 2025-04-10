@@ -1,5 +1,14 @@
 <app-header />
-
+<div id="contact-actions">
+  <app-card>
+    <button (click)="onStartAddContact()">Add new contact</button>
+  </app-card>
+  <app-card>
+    <button id="remove-contact" (click)="onRemoveContact()">
+      Remove contact
+    </button>
+  </app-card>
+</div>
 <main>
   <ul id="contacts">
     @for(contact of contacts; track contact.userId){
@@ -14,10 +23,7 @@
   </ul>
 
   @if(selectedContact){
-  <app-contact
-    [userId]="selectedContact.userId"
-    [name]="selectedContact.name"
-  />
+  <app-contact [contact]="selectedContact" />
   } @else {
   <h2 id="fallback">Select a user to see their info!</h2>
   }

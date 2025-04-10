@@ -8,6 +8,9 @@
   --text-color: #ffffff;
   --muted-text-color: #c4c4c4;
 
+  --remove-btn-color: #e63946;
+  --remove-btn-hover-color: #af0505;
+
   --border-color: rgba(255, 255, 255, 0.1);
   --error-color: #ff4d4f;
   --success-color: #52c41a;
@@ -17,7 +20,31 @@
 
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
+}
+
+button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.5rem;
+  background-color: var(--primary-color);
+  color: var(--muted-text-color);
+  border: none;
+  font: inherit;
+  font-family: Poppins, sans-serif;
+  cursor: pointer;
+  width: 100%;
+  min-width: 10rem;
+  text-align: left;
+}
+
+button:hover,
+button:active,
+.active {
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease-in-out;
 }

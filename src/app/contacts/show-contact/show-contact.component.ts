@@ -7,7 +7,7 @@ import { ContactService } from '../contact.service';
   selector: 'app-show-contact',
   imports: [],
   templateUrl: './show-contact.component.html',
-  styleUrl: './show-contact.component.css'
+  styleUrl: './show-contact.component.css',
 })
 export class ShowContactComponent {
   @Input({ required: true }) contact!: Contact
@@ -20,8 +20,6 @@ export class ShowContactComponent {
     console.log('contact', this.contact)
   }
 
-  onRemoveContact() {
-    this.contactService.removeContact(this.contact.userId);
-  }
+
 
 }

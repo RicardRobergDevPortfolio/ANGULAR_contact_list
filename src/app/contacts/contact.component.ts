@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ContactService } from './contact.service';
 import { ShowContactComponent } from "./show-contact/show-contact.component";
 import { Contact } from '../user/user.model';
@@ -12,22 +12,24 @@ import { NewContactComponent } from './new-contact/new-contact.component';
   styleUrl: './contact.component.css'
 })
 export class ContactComponent {
-  @Input({ required: true }) userId!: string
-  @Input({ required: true }) name!: string
+  @Input({ required: true }) contact!: Contact
+  @Output() contactRemoved = new EventEmitter<void>();
+
+  // @Input({ required: true }) userId!: string
+  // @Input({ required: true }) name!: string
   isAddingContact: boolean = false
 
   constructor(private contactService: ContactService) { }
 
   get selectedContact(): Contact | undefined {
-    return this.contactService.getUserContact(this.userId);
-  }
-
-  onStartAddContact() {
-    this.isAddingContact = true
+    console.log('selectedContact ===>', this.contact.userId)
+    return this.contactService.getUserContact(this.contact.userId);
   }
 
   onCloseAddContact() {
     this.isAddingContact = false
   }
+
+
 
 }

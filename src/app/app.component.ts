@@ -7,11 +7,12 @@ import { ContactComponent } from "./contacts/contact.component";
 import { UserComponent } from "./user/user.component";
 import { FooterComponent } from "./footer/footer.component";
 import { CommonModule } from '@angular/common';
+import { CardComponent } from "./shared/card/card.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [HeaderComponent, ContactComponent, UserComponent, FooterComponent, CommonModule],
+  imports: [HeaderComponent, ContactComponent, UserComponent, FooterComponent, CommonModule, CardComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -29,6 +30,14 @@ export class AppComponent {
 
   onContactRemoved(userId: string) {
     this.contacts = this.contacts.filter(contact => contact.userId !== userId);
+  }
+
+  onStartAddContact() {
+    // this.isAddingContact = true
+  }
+
+  onRemoveContact() {
+    // this.contactService.removeContact(this.contact.userId);
   }
 
   @HostListener('document:click', ['$event'])
