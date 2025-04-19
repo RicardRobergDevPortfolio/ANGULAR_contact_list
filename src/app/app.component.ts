@@ -9,11 +9,12 @@ import { ContactService } from './contacts/contact.service';
 import { NewContactComponent } from './contacts/new-contact/new-contact.component';
 
 import { type Contact } from './user/user.model';
+import { HeaderComponent } from "./header/header.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ ContactComponent, UserComponent, FooterComponent, CommonModule, CardComponent, NewContactComponent],
+  imports: [ContactComponent, UserComponent, FooterComponent, CommonModule, CardComponent, NewContactComponent, HeaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
