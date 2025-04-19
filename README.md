@@ -1,59 +1,97 @@
-# ContactList
+# Angular Contact List App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.5.
+This is my first project built with **Angular**, based on the initial exercise from the first section of my Angular course, where a basic task list was created.
 
-## Development server
+I have expanded the concept into a **Contact List** app. Each user has detailed information, and only one contact is allowed per user. The goal of this project is to practice Angular fundamentals such as:
 
-To start a local development server, run:
+- Standalone components
+- Input/Output communication
+- Local state handling
+- Services
+- Using `localStorage` for persistence
+
+---
+
+## Features
+
+- View a list of contacts
+- Add a new contact (only one per user)
+- Select a contact to view details
+- Remove contacts
+- Data persistence via `localStorage`
+- Sorted contact list (alphabetically by name)
+
+---
+
+## Technologies
+
+- Angular 18
+- TypeScript
+- HTML & CSS (basic styling)
+
+---
+
+## Getting Started
+
+To run this project locally:
 
 ```bash
+git clone https://github.com/your-username/contact-list-app.git
+cd contact-list-app
+npm install
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Then open your browser at: `http://localhost:4200`
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Code Snippets
 
-```bash
-ng generate component component-name
+**Initialize and Load Contacts (contact.service.ts)**
+
+```ts
+constructor() {
+  const stored = localStorage.getItem('contacts');
+
+  if (stored) {
+    this.contacts = JSON.parse(stored).sort((a, b) => a.name.localeCompare(b.name));
+  } else {
+    this.contacts = DEFAULT_USERS.sort((a, b) => a.name.localeCompare(b.name));
+    localStorage.setItem('contacts', JSON.stringify(this.contacts));
+  }
+}
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+**Add New Contact**
 
-```bash
-ng generate --help
+```ts
+addContact(contact: Contact) {
+  this.contacts.unshift({ ...contact, userId: Date.now().toString() });
+  this.saveContacts();
+}
 ```
 
-## Building
+**Get Selected Contact**
 
-To build the project run:
-
-```bash
-ng build
+```ts
+get selectedContact() {
+  return this.selectedId ? this.contactService.getUserContact(this.selectedId) : null;
+}
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+---
 
-## Running unit tests
+## Credits
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+This project was developed for learning purposes. While building it, I consulted:
 
-```bash
-ng test
-```
+- [Angular Documentation](https://angular.io/)
+- [StackOverflow](https://stackoverflow.com/)
+- [ChatGPT](https://chat.openai.com/)
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+## Author
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Ricard Roberg
