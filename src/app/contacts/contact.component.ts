@@ -18,7 +18,7 @@ export class ContactComponent {
   constructor(private contactService: ContactService) { }
 
   get selectedContact(): Contact | undefined {
-    console.log('selectedContact ===>', this.contact.userId)
+    // console.log('selectedContact ===>', this.contact.userId)
     return this.contactService.getUserContact(this.contact.userId);
   }
 

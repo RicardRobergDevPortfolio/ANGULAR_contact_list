@@ -6,6 +6,7 @@
   --cta-color: #08f1ff;
 
   --text-color: #ffffff;
+  --secondary-text-color: #1d1d1d;
   --muted-text-color: #c4c4c4;
 
   --remove-btn-color: #e63946;
@@ -16,6 +17,8 @@
   --success-color: #52c41a;
 
   --shadow-color: rgba(91, 158, 245, 0.829);
+  --dialog-bg-color:   rgba(2, 18, 48, 0.6);
+
 }
 
 body {

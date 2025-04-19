@@ -1,4 +1,6 @@
-<app-header />
+@if(isAddingContact){
+<app-new-contact [userId]="userId" (close)="onCloseAddContact()" />
+}
 <div id="contact-actions">
   <app-card>
     <button (click)="onStartAddContact()">Add new contact</button>

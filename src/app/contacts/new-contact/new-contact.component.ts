@@ -10,7 +10,9 @@ import { FormsModule } from '@angular/forms';
 })
 export class NewContactComponent {
   @Input({ required: true }) userId!: string
+  @Output() isAddingContact = new EventEmitter<void>()
   @Output() close = new EventEmitter<void>()
+
   enteredName: string = ''
   enteredNickName: string = ''
   enteredEmail: string = ''

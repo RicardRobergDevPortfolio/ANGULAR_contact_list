@@ -10,14 +10,24 @@ export class ContactService {
   private contacts = DEFAULT_USERS
 
   constructor() {
-    const contacts = localStorage.getItem('contacts')
-    if (contacts) {
-      this.contacts = JSON.parse(contacts)
+    const stored = localStorage.getItem('contacts');
+
+    if (stored) {
+      this.contacts = JSON.parse(stored).sort((a: Contact, b: Contact) => a.name.localeCompare(b.name));
+      console.log("Contatos carregados do localStorage:");
+    } else {
+      this.contacts = DEFAULT_USERS.sort((a, b) => a.name.localeCompare(b.name));
+      localStorage.setItem('contacts', JSON.stringify(this.contacts));
+      console.log("Contatos carregados do DEFAULT_USERS:");
     }
   }
 
   getUserContact(userId: string) {
     return this.contacts.find(contact => contact.userId === userId)
+  }
+
+  getContacts(): Contact[] {
+    return this.contacts;
   }
 
   addContact(contact: Contact, userId: string) {
@@ -50,4 +60,4 @@ export class ContactService {
   private saveContacts() {
     localStorage.setItem('contacts', JSON.stringify(this.contacts))
   }
-}   
+}
